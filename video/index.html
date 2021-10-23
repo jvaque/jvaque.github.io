@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Video</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="/"><img src="/img/logo.png" alt="Page logo" id="logo"></a>
+      <nav>
+        <ul>
+          <li><a href="/">Literature review</a></li>
+          <li><a href="/discovery_log">Discovery log</a></li>
+          <li><a href="/video">Video</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article>
+      <h1>Video</h1>
+        <video controls autoplay loop>
+            <source src="/vid/video.webm" type="video/webm">
+            <source src="/vid/video.mp4" type="video/mp4">
+            <source src="/vid/video.ogv" type="video/ogg">
+            <track kind="captions" src="/vid/text/captions.vtt" srclang="en" label="Captions">
+        </video>
+    </article>
+
+    <footer>
+      <p>Website made as part of the WebF1 coursework by UP820346. <a href="http://validator.w3.org/check?uri=referer">HTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer/">CSS</a> validator links</p>
+    </footer>
+  </body>
+</html>
