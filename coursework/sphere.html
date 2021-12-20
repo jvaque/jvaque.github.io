@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sphere working progress</title>
+
+    <!-- External javascript file -->
+    <script type="text/javascript" src="/libs/glMatrix.js"></script>
+    <script type="text/javascript" src="/libs/webgl-debug.js"></script>
+    <script type="text/javascript" src="/libs/webgl-utils.js"></script>
+
+    <!-- Vertex shader javascript -->
+    <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+      attribute vec4 aVertexColor;
+
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+
+      varying vec4 vColor;
+
+      void main() {
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+        vColor = aVertexColor;
+      }
+    </script>
+
+    <!-- Fragment shader script -->
+    <script id="shader-fs" type="x-shader/x-fragment">
+      precision mediump float;
+      varying vec4 vColor;
+
+      void main() {
+        gl_FragColor = vColor;
+      }
+    </script>
+
+    <!-- Script for WebGL program -->
+    <!-- Doesn't work -->
+    <!-- <script type="text/javascript" src="js/sphere.js"></script> -->
+    <!-- Works -->
+    <script type="text/javascript" src="js/sphere_works_dont_modify_never.js"></script>
+  </head>
+  <body onload="startup();">
+    <canvas id="myGlCanvas" width="500" height="500"></canvas>
+  </body>
+</html>

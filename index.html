@@ -1,85 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="/style/style.css">
-    <title>Literature Review</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGl JS</title>
 
-  <body>
-    <header>
-      <a href="/"><img src="/img/logo.png" alt="Page logo" id="logo"></a>
+    <!-- External javascript file -->
+    <script type="text/javascript" src="/libs/glMatrix.js"></script>
+    <script type="text/javascript" src="/libs/webgl-debug.js"></script>
+    <script type="text/javascript" src="/libs/webgl-utils.js"></script>
 
-      <nav>
-        <ul>
-          <li><a href="/">Literature review</a></li>
-          <li><a href="/discovery_log">Discovery log</a></li>
-          <li><a href="/video">Video</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Vertex shader javascript -->
+    <!-- <script id="shader-vs" type="x-shader/x-vertex"></script> -->
 
-    <article>
-      <h1>Mitigating Personal Information Exposure on the Web</h1>
-        <h2>Introduction</h2>
-          <p>As online services become more and more prevalent, users are incited to share personal information in exchange for a better experience using those online services (<a href="#Ref_Galegher_et_al">Galegher, Sproull, &amp; Kiesler, 1998;</a> <a href="#Ref_Metzger">Metzger, 2006;</a> <a href="#Ref_Youn">Youn, 2008;</a> as referenced in <a href="#Ref_Shin_et_al">Shin, &amp; Kang, 2016, p.115</a>).The sharing of information holds a special value in online social networks, due to the connection between online profiles and their real world identities, this disclosure of personal information might be incited by peer pressure, and relaxed attitudes, but sharing personal information on these sites may come at a higher personal cost than one might initially think (<a href="#Ref_Gross_et_al">Gross, &amp; Acquisti , 2005;</a> as referenced in <a href="#Ref_Ge_et_al">Ge, Peng, &amp; Chen, 2014, p.329</a>).</p>
+    <!-- Fragment shader script -->
+    <!-- <script id="shader-fs" type="x-shader/x-fragment"></script> -->
 
-        <h2>Diminished ability to control one's information</h2>
-          <p>An emerging threat towards user online exposure comes in the form of losing control over personal information, this can come in the form of marketers collecting information (<a href="#Ref_Nowak_et_al">Nowak, &amp; Phelps, 1995;</a> as referenced in <a href="#Ref_Shin_et_al">Shin et al., 2016, p.115</a>), or other users uploading media containing ourselves that we might not be aware of, in addition, the fact that this information cannot be manually observed due to the sheer amounts of data generated every day online, makes things even worse for an individual user (<a href="#Ref_Smith_et_al">Smith, Szongott, Henne, &amp; Voigt, 2012, p.2</a>). This article also brings up the idea that the perception of damaging data for an individual might change over time (<a href="#Ref_Smith_et_al">Smith et al., 2012, p.2</a>), making us unknowingly leak information that might later become damaging.</p>
-
-          <p>Another aspect users should take more into account, are the information exposure risks associated with signing up for a new service, using a third party service to provide a login mechanism, although convenient, this method of authentication provides the founding blocks for information exposure (<a href="#Ref_Puglisi_et_al">Puglisi, Rebollo-Monedero, &amp; Forne, 2015, p.1051</a>), and data farming by providing the new service access to all of the existing user data from that third party service (<a href="#Ref_Puglisi_et_al">Puglisi et al., 2015, p.1047</a>), in addition, if the new service is like the proximity based application used in this study, this can result in the user being unable to control the flow of location data that that new service is able to gather from the user (<a href="#Ref_Puglisi_et_al">Puglisi et al., 2015, p.1051</a>).</p>
-
-          <p>Along with this resides the fact that neither companies (<a href="#Ref_Silic_et_al">Silic, &amp; Back, 2016, p.39</a>) or governmental institutions (<a href="#Ref_Dressler_et_al">Dressler, Bronk, &amp; Wallach, 2015, p.457</a>) have found an effective mechanism to control social networking sites, which makes external users able to access a company's work chat (<a href="#Ref_Silic_et_al">Silic et al., 2016, p.39</a>) or gather information of military personnel (<a href="#Ref_Dressler_et_al">Dressler et al., 2015, p.457</a>) with little to no impediment, as demonstrated by <a href="#Ref_Silic_et_al">Silic et al.</a> and <a href="#Ref_Dressler_et_al">Dressler et al.</a> in their respective studies.</p>
-        <h2>Humans as the weakest link</h2>
-          <p>As found in <a href="#Ref_Silic_et_al">Silic et al.</a> study, employees were easily deceived by a fake user that claimed to be a company worker, without having to provide documentation, and was able to redirect employees to an external website where the fake user obtained email address, office location, age, name, and function within the company (<a href="#Ref_Silic_et_al">2016, p.38</a>), this study shows how easily users are deceived, making us the weakest link in divulging personal information (<a href="#Ref_Dressler_et_al">Dressler et al., 2015, p.457</a>).</p>
-
-          <p>Besides, multiple studies have found a correlation between the youngest demographic, time spent online, and level of online self disclosure (<a href="#Ref_Shin_et_al">Shin et al., 2016, p.119;</a> <a href="#Ref_Öğütçü_et_al">Öğütçü, Testik, &amp; Chouseinoglou, 2016, p.91;</a> <a href="#Ref_Silic_et_al">Silic et al., 2016, p.39</a>), suggesting that a high use of the Internet, social networks, and online media, are driving factors in online self disclosure (<a href="#Ref_Öğütçü_et_al">Öğütçü et al., 2016, p.92</a>).</p>
-        <h2>Risks associated with online self disclosure</h2>
-          <p>All of this different forms of personal information disclosure give way to multiple risks for an individual user, company or state. While a regular user might experience privacy attacks (<a href="#Ref_Puglisi_et_al">Puglisi et al., 2015, p.1047</a>), spamming e-mail, or even cyberbullying (<a href="#Ref_Moscardelli_et_al">Moscardelli, &amp; Divine, 2007;</a> <a href="#Ref_Trepte_et_al">Trepte, &amp; Reinecke, 2011;</a> <a href="#Ref_Youn">Youn, 2008;</a> as referenced in <a href="#Ref_Shin_et_al">Shin et al., 2016, p.115;</a> <a href="#Ref_Ge_et_al">Ge et al., 2014, p.334</a>), a company might be subject to the public scrutiny, since any disclosure of information in online social networks will not only leak personal information, but it will also affect the company’s reputation and how users perceive the company, causing serious financial damage.</p>
-
-          <p>Also, any competitor would be interested on gathering information about other company workers in aspirations of recruiting them and getting a competitive advantage and inside knowledge (<a href="#Ref_Ge_et_al">Ge et al., 2014, p.334</a>), and finally, any leakage of confidential information by a state would result disastrous for any secret operation, as happened in 2012 when the Israeli military revealed the location and time of an upcoming raid in their Facebook page, causing Israeli military to cancel the entire operation (<a href="#Ref_BBC">BBC, 2012</a>).</p>
-        <h2>Conclusion</h2>
-          <p>Although the number of threats and attacks seems endless, and removing them totally seems unlikely, all authors seem to end their studies agreeing that awareness is the first and most important factor that an individual must learn in order to minimize personal information exposure on the web (<a href="#Ref_Öğütçü_et_al">Öğütçü et al., 2016, p.85;</a> <a href="#Ref_Ge_et_al">Ge et al., 2014, p.335</a>), phishing attacks, and information security threats (<a href="#Ref_Mohammad_et_al">Mohammad, Thabtah, &amp; McCluskey, 2015, p.6</a>). Since it makes users more aware of the risks one may encounter while surfing the web and act in a more protective manner, but neither this or any security measure a user might take will shield a user with complete immunity against personal privacy leakage (<a href="#Ref_Ge_et_al">Ge et al., 2014, p.335</a>).</p>
-
-          <p>Also, the youngest population should be made aware of the risks their online actions have, in order to act appropriately, since most authors view them as the most vulnerable (<a href="#Ref_Öğütçü_et_al">Öğütçü et al., 2016, p.91-92;</a> <a href="#Ref_Silic_et_al">Silic et al., 2016, p.39</a>). Having said this, a new debate arises on whether the responsibility of making the user aware of the privacy risks relies on those services, such as social networking sites to provide the information (<a href="#Ref_Ge_et_al">Ge et al., 2014, p.335</a>), and those who gather user information, or on the user itself.</p>
-        <h2>References</h2>
-          <p id="Ref_BBC">BBC (2010). Israeli military 'unfriends' soldier after Facebook leak. BBC. Retrieved from <a href="http://news.bbc.co.uk/1/hi/8549099.stm">http://news.bbc.co.uk/1/hi/8549099.stm</a></p>
-
-          <p id="Ref_Dressler_et_al">Dressler, J. C., Bronk, C., &amp; Wallach, D. S. (2015). Exploiting military OpSec through open-source vulnerabilities. MILCOM 2015 - 2015 IEEE Military Communications Conference, 450. doi:10.1109/MILCOM.2015.7357484</p>
-
-          <p id="Ref_Galegher_et_al">Galegher, J., Sproull, L., &amp; Kiesler, S. (1998). Legitimacy, Authority, and Community in Electronic Support Groups. Written Communication, 15(4), 493-530.</p>
-
-          <p id="Ref_Ge_et_al">Ge, J., Peng, J., &amp; Chen, Z. (2014). Your privacy information are leaking when you surfing on the social networks: A survey of the degree of online self-disclosure (DOSD). 2014 IEEE 13Th International Conference On Cognitive Informatics &amp; Cognitive Computing, 329. doi:10.1109/ICCI-CC.2014.6921479</p>
-
-          <p id="Ref_Gross_et_al">Gross, R., &amp; Acquisti, A. (2005, March 4). Information revelation and privacy in online social networks. Proceedings Of The 2005 ACM Workshop: Privacy In The Electronic Society, 71. doi:10.1145/1102199.1102214</p>
-
-          <p id="Ref_Metzger">Metzger, M. (2006). Effects of site, vendor, and consumer characteristics on web site trust and disclosure. Communication Research, 33(3), 155-179.</p>
-
-          <p id="Ref_Mohammad_et_al">Mohammad, R. M., Thabtah, F., &amp; McCluskey, L. (2015). Survey: Tutorial and critical analysis of phishing websites methods. Computer Science Review, 171-24. doi:10.1016/j.cosrev.2015.04.001</p>
-
-          <p id="Ref_Moscardelli_et_al">Moscardelli, D. M., &amp; Divine, R. (2007). Adolescents' concern for privacy when using the Internet: an empirical analysis predictors and relationships with privacy-protecting behaviors. Family and Consumer Sciences Research Journal, 35(3), 232-252.</p>
-
-          <p id="Ref_Nowak_et_al">Nowak, G., &amp; Phelps, J. (1995). Direct marketing and the use of individual-level consumer information: determining how and when “privacy” matters. Journal of Direct Marketing, 9(3), 46-60.</p>
-
-          <p id="Ref_Öğütçü_et_al">Öğütçü, G., Testik, Ö. M., &amp; Chouseinoglou, O. (2016). Analysis of personal information security behavior and awareness. Computers &amp; Security, 5683-93. doi:10.1016/j.cose.2015.10.002</p>
-
-          <p id="Ref_Puglisi_et_al">Puglisi, S., Rebollo-Monedero, D., &amp; Forne, J. (2015). Potential Mass Surveillance and Privacy Violations in Proximity-Based Social Applications. 2015 IEEE Trustcom/Bigdatase/ISPA, 1045. doi:10.1109/Trustcom.2015.481</p>
-
-          <p id="Ref_Shin_et_al">Shin, W., &amp; Kang, H. (2016). Full length article: Adolescents' privacy concerns and information disclosure online: The role of parents and the Internet. Computers In Human Behavior, 54114-123. doi:10.1016/j.chb.2015.07.062</p>
-
-          <p id="Ref_Silic_et_al">Silic, M., &amp; Back, A. (2016). Full length article: The dark side of social networking sites:Understanding phishing risks. Computers In Human Behavior, 6035-43. doi:10.1016/j.chb.2016.02.050</p>
-
-          <p id="Ref_Smith_et_al">Smith, M., Szongott, C., Henne, B., &amp; von Voigt, G. (2012). Big data privacy issues in public social media. 2012 6Th IEEE International Conference On Digital Ecosystems &amp; Technologies (DEST), 1. doi:10.1109/DEST.2012.6227909</p>
-
-          <p id="Ref_Trepte_et_al">Trepte, S., &amp; Reinecke, L. (2011). Privacy online. Heidelberg and New York: Springer.</p>
-
-          <p id="Ref_Youn">Youn, S. (2008). Parental influence and teens' attitude toward online privacy protection. The Journal of Consumer Affairs, 42(3), 362-388.</p>
-    </article>
-
-    <footer>
-      <p>Website made as part of the WebF1 coursework by UP820346. <a href="http://validator.w3.org/check?uri=referer">HTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer/">CSS</a> validator links</p>
-    </footer>
-  </body>
+    <!-- Script for WebGL program -->
+    <script type="module" src="/js/week3.js"></script>
+    <script type="module" src="/js/week4-ex1.js"></script>
+    <script type="module" src="/js/week4-ex2.js"></script>
+    <script type="module" src="/js/week5.js"></script>
+    <script type="module" src="/js/week6.js"></script>
+    <script type="module" src="/js/week7.js"></script>
+    <script type="module" src="/js/week8.js"></script>
+    <script type="module" src="/js/week9.js"></script>
+    <script type="module" src="/js/week10.js"></script>
+    <script type="module" src="/js/week11.js"></script>
+</head>
+<body>
+    <div class="week-1">
+        <h2>Week 1</h2>
+        <p>Click <a href="/week-1">here</a> to view what was covered in this practical.</p>
+    </div>
+    <div class="week-2">
+        <h2>Week 2</h2>
+        <p>Click <a href="/week-2">here</a> to view what was covered in this practical.</p>
+    </div>
+    <div class="week-3">
+        <h2>Week 3</h2>
+        <canvas id="canvas-web-gl-week-3" width="500" height="500"></canvas>
+    </div>
+    <div class="week-4-ex1">
+        <h2>Week 4-ex1</h2>
+        <canvas id="canvas-web-gl-week-4-ex1" width="500" height="500"></canvas>
+    </div>
+    <div class="week-4-ex2">
+        <h2>Week 4-ex2</h2>
+        <canvas id="canvas-web-gl-week-4-ex2" width="500" height="500"></canvas>
+    </div>
+    <div class="week-5">
+        <h2>Week 5</h2>
+        <canvas id="canvas-web-gl-week-5" width="500" height="500"></canvas>
+    </div>
+    <div class="week-6a">
+        <h2>Week 6A</h2>
+        <p>Click <a href="/week-6a">here</a> to view what was covered in this practical.</p>
+    </div>
+    <div class="week-6">
+        <h2>Week 6</h2>
+        <canvas id="canvas-web-gl-week-6" width="500" height="500"></canvas>
+    </div>
+    <div class="week-7">
+        <h2>Week 7</h2>
+        <canvas id="canvas-web-gl-week-7" width="500" height="500"></canvas>
+    </div>
+    <div class="week-8">
+        <h2>Week 8</h2>
+        <canvas id="canvas-web-gl-week-8" width="500" height="500"></canvas>
+        <div id="fps-counter"> FPS: <span id="fps-week-8">--</span></div>
+    </div>
+    <div class="week-9">
+        <h2>Week 9</h2>
+        <canvas id="canvas-web-gl-week-9" width="500" height="500"></canvas>
+        <div id="fps-counter"> FPS: <span id="fps-week-9">--</span></div>
+    </div>
+    <div class="week-10">
+        <h2>Week 10</h2>
+        <canvas id="canvas-web-gl-week-10" width="500" height="500"></canvas>
+        <div id="fps-counter"> FPS: <span id="fps-week-10">--</span></div>
+    </div>
+    <div class="week-11">
+        <h2>Week 11</h2>
+        <canvas id="canvas-web-gl-week-11" width="500" height="500"></canvas>
+        <div id="fps-counter"> FPS: <span id="fps-week-11">--</span></div>
+    </div>
+    <div class="coursework">
+        <h2>Coursework</h2>
+        <p>Click <a href="/coursework">here</a> to view the piece of coursework made.</p>
+    </div>
+</body>
 </html>

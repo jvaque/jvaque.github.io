@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>up820346 WebGL Coursework</title>
+
+    <!-- External javascript file -->
+    <script type="text/javascript" src="/libs/glMatrix.js"></script>
+    <script type="text/javascript" src="/libs/webgl-debug.js"></script>
+    <script type="text/javascript" src="/libs/webgl-utils.js"></script>
+
+    <!-- Vertex shader javascript -->
+    <!-- Vertex shader is \shaders\vertex-shader-unknown-v2.glsl.js -->
+    <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+      attribute vec2 aTextureCoordinates;
+
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+
+      varying vec2 vTextureCoordinates;
+
+      void main() {
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+        vTextureCoordinates = aTextureCoordinates;
+      }
+    </script>
+
+    <!-- Fragment shader script -->
+    <!-- Fragment shader is \shaders\fragment-shader-basic-v2.glsl.js -->
+    <script id="shader-fs" type="x-shader/x-fragment">
+      precision mediump float;
+      varying vec2 vTextureCoordinates;
+      uniform sampler2D uSampler;
+
+      void main() {
+        gl_FragColor = texture2D(uSampler, vTextureCoordinates);
+      }
+    </script>
+
+    <!-- Script for WebGL program -->
+    <script type="text/javascript" src="js/up820346_before_lighting.js"></script>
+  </head>
+  <body onload="startup();">
+    <canvas id="myGlCanvas" width="500" height="500"></canvas>
+    <div id="fps-counter"> FPS: <span id="fps">--</span></div>
+    <div id="satelite-speed"> Speed: <span id="speed">--</span> m/s</div>
+    <div id="orbit-radius"> Orbit radius: <span id="circleRadius">--</span> m</div>
+    <div id="satelite-period"> Satelite period: <span id="satelitePeriod">--</span> ms</div>
+    <div id="orbit-angle"> Orbit angle: <span id="orbitAngle">--</span>&deg;</div>
+    <p>To control this animation use the following:</p>
+    <p>Use "arrow up" to increase the satelite speed and "arrow down" to decrease the satelite speed, to set any speed change the variable "pwgl.sateliteSpeed" to the value you want to in the js terminal.</p>
+    <p>Use "arrow right" to increase the satelite orbit radius and "arrow left" to decrease the satelite orbit radius, to set any orbit radius change the variable "pwgl.orbitRadius" to the value you want to in the js terminal.</p>
+    <p>The satelite period is a result of the speed of the satelite and the radius of the orbit.</p>
+    <p>Use "w" to increase the satelite orbit inclination and "s" to decrease the satelite orbit inclination, to set any orbit radius change the variable "pwgl.orbitInclination" to the value you want to (in radians) or use the function "setInclination(angle)" with the angle (in degrees) in the js terminal.</p>
+  </body>
+</html>
