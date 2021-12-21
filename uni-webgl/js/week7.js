@@ -8,10 +8,10 @@ var canvas;
 var inc = 0;
 
 // Import shaders
-import vertexShaderGLSL from '/shaders/vertex-shader-unknown-v2.glsl.js';
-import fragmentShaderGLSL from '/shaders/fragment-shader-basic-v2.glsl.js';
+import vertexShaderGLSL from '../shaders/vertex-shader-unknown-v2.glsl.js';
+import fragmentShaderGLSL from '../shaders/fragment-shader-basic-v2.glsl.js';
 
-import * as glUtils from '/js/glUtils.js';
+import * as glUtils from '../js/glUtils.js';
 
 function setupShaders() {
   // Create vertex and fragment shaders

@@ -7,10 +7,10 @@ var triangleVertexBuffer;
 var triangleVertexColorBuffer;
 
 // Import shaders
-import vertexShaderGLSL from '/shaders/vertex-shader-unknown-v4.glsl.js';
-import fragmentShaderGLSL from '/shaders/fragment-shader-uniform-color.glsl.js';
+import vertexShaderGLSL from '../shaders/vertex-shader-unknown-v4.glsl.js';
+import fragmentShaderGLSL from '../shaders/fragment-shader-uniform-color.glsl.js';
 
-import * as glUtils from '/js/glUtils.js';
+import * as glUtils from '../js/glUtils.js';
 
 // This function is the entry point of this webgl application
 // It is the firts function to be loaded when the html doc is loaded into

@@ -5,10 +5,10 @@ pwgl.ongoingImageLoads = [];
 var canvas;
 
 // Import shaders
-import vertexShaderGLSL from '/shaders/vertex-shader.glsl.js';
-import fragmentShaderGLSL from '/shaders/fragment-shader.glsl.js';
+import vertexShaderGLSL from '../shaders/vertex-shader.glsl.js';
+import fragmentShaderGLSL from '../shaders/fragment-shader.glsl.js';
 
-import * as glUtils from '/js/glUtils.js';
+import * as glUtils from '../js/glUtils.js';
 
 // Variables for translations and rotations
 var transY = 0;
