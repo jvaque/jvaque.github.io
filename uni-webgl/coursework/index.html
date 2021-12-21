@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>up820346 WebGL Coursework</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+  <title>up820346 WebGL Coursework</title>
 
-    <style>
-      .animation {
-        float: left;
-        padding-right: 20px;
-      }
-    </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- External javascript file -->
-    <script type="text/javascript" src="../libs/glMatrix.js"></script>
-    <script type="text/javascript" src="../libs/webgl-debug.js"></script>
-    <script type="text/javascript" src="../libs/webgl-utils.js"></script>
+  <style>
+    .animation {
+      float: left;
+      padding-right: 20px;
+    }
+  </style>
 
-    <!-- Vertex shader javascript -->
-    <!-- Vertex shader is \shaders\vertex-shader.glsl.js -->
+  <!-- External javascript file -->
+  <script type="text/javascript" src="../libs/glMatrix.js"></script>
+  <script type="text/javascript" src="../libs/webgl-debug.js"></script>
+  <script type="text/javascript" src="../libs/webgl-utils.js"></script>
 
-    <!-- Fragment shader script -->
-    <!-- Fragment shader is \shaders\fragment-shader.glsl.js -->
+  <!-- Vertex shader javascript -->
+  <!-- Vertex shader is \shaders\vertex-shader.glsl.js -->
 
-    <!-- Script for WebGL program -->
-    <script type="module" src="./js/up820346.js"></script>
-  </head>
-  <body>
-    <div class="animation">
-      <canvas id="myGlCanvas" width="500" height="500"></canvas>
-      <!-- <canvas id="myGlCanvas" width="1000" height="1000"></canvas> -->
-      <div id="fps-counter"> FPS: <span id="fps">--</span></div>
-      <div id="satelite-speed"> Speed: <span id="speed">--</span> m/s</div>
-      <div id="orbit-radius"> Orbit radius: <span id="circleRadius">--</span> m</div>
-      <div id="satelite-period"> Satelite period: <span id="satelitePeriod">--</span> ms</div>
-      <div id="orbit-angle"> Orbit angle: <span id="orbitAngle">--</span>&deg;</div>
-    </div>
+  <!-- Fragment shader script -->
+  <!-- Fragment shader is \shaders\fragment-shader.glsl.js -->
 
-    <p>This annimation is the piece of coursework from up820346</p>
-    <p>The satelite period is a result of the speed of the satelite and the radius of the orbit.</p>
+  <!-- Script for WebGL program -->
+  <script type="module" src="./js/up820346.js"></script>
+</head>
+<body>
+  <div class="animation">
+    <canvas id="myGlCanvas" width="500" height="500"></canvas>
+    <!-- <canvas id="myGlCanvas" width="1000" height="1000"></canvas> -->
+    <div id="fps-counter"> FPS: <span id="fps">--</span></div>
+    <div id="satelite-speed"> Speed: <span id="speed">--</span> m/s</div>
+    <div id="orbit-radius"> Orbit radius: <span id="circleRadius">--</span> m</div>
+    <div id="satelite-period"> Satelite period: <span id="satelitePeriod">--</span> ms</div>
+    <div id="orbit-angle"> Orbit angle: <span id="orbitAngle">--</span>&deg;</div>
+  </div>
 
-    <p>To translate and rotate the earth and satelite model use the following:</p>
-    <ul>
-      <li>x-trans: shift key plus mouse drag or shift key plus mouse wheel for finer control</li>
-      <li>y-trans: alt key plus mouse drag or alt key plus mouse wheel for finer control</li>
-      <li>z-trans: mouse wheel</li>
-      <li>x-rot: vertical mouse drag</li>
-      <li>y-rot: horizontal mouse drag</li>
-      <li>z-rot: control key plus vertical mouse drag</li>
-    </ul>
-    <p>To control this animation use the following:</p>
-    <ul>
-      <li>Use "arrow up" and "arrow down" to increase or decrease the satelite speed.</li>
-      <li>Use "arrow right" and "arrow left" to increase or decrease the satelite orbit radius.</li>
-      <li>Use "w" and "s" to increase or decrease the satelite orbit inclination.</li>
-    </ul>
-    <p>For more control on the animation parameters you can change the following variables values or use the functions provided in the terminal:</p>
-    <ul>
-      <li>variable "pwgl.sateliteSpeed" controls the satelite speed.</li>
-      <li>variable "pwgl.orbitRadius" controls the satelite orbit radius.</li>
-      <li>variable "pwgl.orbitInclination" controls the satelite orbit inclination being set in radians</li>
-      <li>function "setInclination(angle)" controls the satelite orbit inclination, with the angle in degrees</li>
-    </ul>
+  <p>This annimation is the piece of coursework from up820346</p>
+  <p>The satelite period is a result of the speed of the satelite and the radius of the orbit.</p>
 
-  </body>
+  <p>To translate and rotate the earth and satelite model use the following:</p>
+  <ul>
+    <li>x-trans: shift key plus mouse drag or shift key plus mouse wheel for finer control</li>
+    <li>y-trans: alt key plus mouse drag or alt key plus mouse wheel for finer control</li>
+    <li>z-trans: mouse wheel</li>
+    <li>x-rot: vertical mouse drag</li>
+    <li>y-rot: horizontal mouse drag</li>
+    <li>z-rot: control key plus vertical mouse drag</li>
+  </ul>
+  <p>To control this animation use the following:</p>
+  <ul>
+    <li>Use "arrow up" and "arrow down" to increase or decrease the satelite speed.</li>
+    <li>Use "arrow right" and "arrow left" to increase or decrease the satelite orbit radius.</li>
+    <li>Use "w" and "s" to increase or decrease the satelite orbit inclination.</li>
+  </ul>
+  <p>For more control on the animation parameters you can change the following variables values or use the functions provided in the terminal:</p>
+  <ul>
+    <li>variable "pwgl.sateliteSpeed" controls the satelite speed.</li>
+    <li>variable "pwgl.orbitRadius" controls the satelite orbit radius.</li>
+    <li>variable "pwgl.orbitInclination" controls the satelite orbit inclination being set in radians</li>
+    <li>function "setInclination(angle)" controls the satelite orbit inclination, with the angle in degrees</li>
+  </ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
 </html>
