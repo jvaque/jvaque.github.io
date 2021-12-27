@@ -35,4 +35,4 @@ var image = new Image();
 image.onload = function() {
   ctx.drawImage(image, 0, 0);
 }
-image.src = "../img/scream.png";
+image.src = "/media/img/scream.png";
