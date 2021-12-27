@@ -5,10 +5,11 @@ var shaderProgram;
 var vertexBuffer;
 
 // Import shaders
-import vertexShaderGLSL from '../shaders/vertex-shader-unknown-v5.glsl.js';
-import fragmentShaderGLSL from '../shaders/fragment-shader-static-color.glsl.js';
 
-import * as glUtils from '../js/glUtils.js';
+import vertexShaderGLSL from '/js/shaders/vertex-shader-unknown-v5.glsl.js';
+import fragmentShaderGLSL from '/js/shaders/fragment-shader-static-color.glsl.js';
+
+import * as glUtils from '/js/uni-webgl/glUtils.js';
 
 // This function is the entry point of this webgl application
 // It is the firts function to be loaded when the html doc is loaded into
