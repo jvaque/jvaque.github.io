@@ -5,10 +5,10 @@ pwgl.ongoingImageLoads = [];
 var canvas;
 
 // Import shaders
-import vertexShaderGLSL from '../shaders/vertex-shader-unknown.glsl.js';
-import fragmentShaderGLSL from '../shaders/fragment-shader-basic.glsl.js';
+import vertexShaderGLSL from '/js/shaders/vertex-shader-unknown.glsl.js';
+import fragmentShaderGLSL from '/js/shaders/fragment-shader-basic.glsl.js';
 
-import * as glUtils from '../js/glUtils.js';
+import * as glUtils from '/js/uni-webgl/glUtils.js';
 
 // Variables for translations and rotations
 var transY = 0;
@@ -169,15 +169,15 @@ function uploadNormalMatrixToShader() {
 function setupTextures() {
   // Texture for the table
   pwgl.woodTexture = gl.createTexture();
-  loadImageForTexture("textures/wood_128x128.jpg", pwgl.woodTexture);
+  loadImageForTexture("/media/textures/wood_128x128.jpg", pwgl.woodTexture);
 
   // Texture for the floor
   pwgl.groundTexture = gl.createTexture();
-  loadImageForTexture("textures/metal_floor_256.jpg", pwgl.groundTexture);
+  loadImageForTexture("/media/textures/metal_floor_256.jpg", pwgl.groundTexture);
 
   // Texture for the floor on the table
   pwgl.boxTexture = gl.createTexture();
-  loadImageForTexture("textures/wicker_256.jpg", pwgl.boxTexture);
+  loadImageForTexture("/media/textures/wicker_256.jpg", pwgl.boxTexture);
 }
 
 function loadImageForTexture(url, texture) {
