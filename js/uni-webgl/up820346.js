@@ -5,10 +5,10 @@ pwgl.ongoingImageLoads = [];
 var canvas;
 
 // Import shaders
-import vertexShaderGLSL from '../../shaders/vertex-shader.glsl.js';
-import fragmentShaderGLSL from '../../shaders/fragment-shader.glsl.js';
+import vertexShaderGLSL from '/js/shaders/vertex-shader.glsl.js';
+import fragmentShaderGLSL from '/js/shaders/fragment-shader.glsl.js';
 
-import * as glUtils from '../../js/glUtils.js';
+import * as glUtils from '/js/uni-webgl/glUtils.js';
 
 // Variables for translations and rotations
 var transX = 0;
@@ -270,23 +270,23 @@ function uploadNormalMatrixToShader() {
 function setupTextures() {
   // Test texture
   pwgl.testTexture = gl.createTexture();
-  loadImageForTexture("textures/test_image.jpg", pwgl.testTexture);
+  loadImageForTexture("/media/textures/test_image.jpg", pwgl.testTexture);
 
   // Texture for the connecting rods
   pwgl.goldenTexture = gl.createTexture();
-  loadImageForTexture("textures/gold_foil.jpg", pwgl.goldenTexture);
+  loadImageForTexture("/media/textures/gold_foil.jpg", pwgl.goldenTexture);
 
   // Texture for the solar panel
   pwgl.solarTexture = gl.createTexture();
-  loadImageForTexture("textures/solar_panel.jpg", pwgl.solarTexture);
+  loadImageForTexture("/media/textures/solar_panel.jpg", pwgl.solarTexture);
 
   // Texture for the body of the satelite
   pwgl.sateliteTexture = gl.createTexture();
-  loadImageForTexture("textures/satelite_body.jpg", pwgl.sateliteTexture);
+  loadImageForTexture("/media/textures/satelite_body.jpg", pwgl.sateliteTexture);
 
   pwgl.sphereTexture = gl.createTexture();
-  loadImageForTexture("textures/earth.jpg", pwgl.sphereTexture);
-  // loadImageForTexture("textures/land_ocean_ice_cloud_2048.jpg", pwgl.sphereTexture);
+  loadImageForTexture("/media/textures/earth.jpg", pwgl.sphereTexture);
+  // loadImageForTexture("/media/textures/land_ocean_ice_cloud_2048.jpg", pwgl.sphereTexture);
 }
 
 function loadImageForTexture(url, texture) {
