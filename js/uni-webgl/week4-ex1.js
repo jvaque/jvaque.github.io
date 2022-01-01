@@ -7,16 +7,16 @@ var triangleVertexBuffer;
 var triangleVertexColorBuffer;
 
 // Import shaders
-import vertexShaderGLSL from '../shaders/vertex-shader-unknown-v4.glsl.js';
-import fragmentShaderGLSL from '../shaders/fragment-shader-uniform-color.glsl.js';
+import vertexShaderGLSL from '/js/shaders/vertex-shader-unknown-v4.glsl.js';
+import fragmentShaderGLSL from '/js/shaders/fragment-shader-uniform-color.glsl.js';
 
-import * as glUtils from '../js/glUtils.js';
+import * as glUtils from '/js/uni-webgl/glUtils.js';
 
 // This function is the entry point of this webgl application
 // It is the firts function to be loaded when the html doc is loaded into
 function startup() {
   // retrieve html canvas
-  canvas = document.getElementById("canvas-web-gl-week-4-ex2");
+  canvas = document.getElementById("canvas-web-gl-week-4-ex1");
   // Create webgl contex. Here, the debuggin context is created by calling
   // a functin in the library (glUtils.createGLContext(canvas))
   gl = WebGLDebugUtils.makeDebugContext(glUtils.createGLContext(canvas));
@@ -68,71 +68,52 @@ function setupBuffers() {
   // triangle vertices
   triangleVertexBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexBuffer);
-  // The vertex coordinatesand colours are interleaved
   var triangleVertices = [
-    // (x    y    z )   (r    g    b    a )
-    // ----------------------------------
-      0.0,  0.5, 0.0,  255,   0,   0, 255, //v0
-     -0.5, -0.5, 0.0,    0, 255,   6, 255, //v1
-      0.5, -0.5, 0.0,    0,   0, 255, 255, //v2
+    0.0, 0.5, 0.0,    //v0
+    -0.5, -0.5, 0.0,  //v1
+    0.5, -0.5, 0.0    //v2
   ];
 
-  var nbrOfVertices = 3; // Total nubmber of vertices
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(triangleVertices), gl.STATIC_DRAW);
+  triangleVertexBuffer.itemSize = 3;      //3 coordinates for each vertex
+  triangleVertexBuffer.numberOfItems = 3; //3 vertices in all in this buffer
 
-  // Calculate how many bytes that are needed for one vertex element
-  // that consists of (x,y,z) + (r,g,b,a)
-  var vertexSizeInBytes = 3 * Float32Array.BYTES_PER_ELEMENT + 4 * Uint8Array.BYTES_PER_ELEMENT;
-  var vertexSizeInFloats =vertexSizeInBytes / Float32Array.BYTES_PER_ELEMENT;
+  // Triangle vertex Colors
+  triangleVertexColorBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
+  var colors = [
+    1.0, 0.0, 0.0, 1.0, //v0
+    0.0, 1.0, 0.0, 1.0, //v1
+    0.0, 0.0, 1.0, 1.0, //v2
+  ];
 
-  // Allocate the buffer
-  var buffer = new ArrayBuffer(nbrOfVertices * vertexSizeInBytes);
-
-  // Map the buffer to a Float32Array view to access the position
-  var positionView = new Float32Array(buffer)
-
-  // Map the sama buffer to a Uint8Array to access the colour
-  var colorView = new Uint8Array(buffer)
-
-  // Populate the ArrayBufferfrom the JavaScript Array
-  var positionOffsetInFloats = 0;
-  var colorOffsetInBytes = 12;
-
-  var k = 0; // Index to JavaScript Array
-  for (var i = 0; i < nbrOfVertices; i++) {
-    positionView[positionOffsetInFloats]   = triangleVertices[k];   // x
-    positionView[1+positionOffsetInFloats] = triangleVertices[k+1]; // y
-    positionView[2+positionOffsetInFloats] = triangleVertices[k+2]; // z
-
-    colorView[colorOffsetInBytes]   = triangleVertices[k+3];        // R
-    colorView[1+colorOffsetInBytes] = triangleVertices[k+4];        // G
-    colorView[2+colorOffsetInBytes] = triangleVertices[k+5];        // B
-    colorView[3+colorOffsetInBytes] = triangleVertices[k+6];        // A
-
-    positionOffsetInFloats += vertexSizeInFloats;
-    colorOffsetInBytes += vertexSizeInBytes;
-
-    k += 7;
-  }
-
-  gl.bufferData(gl.ARRAY_BUFFER, buffer, gl.STATIC_DRAW);
-  triangleVertexBuffer.positionSize = 3;
-  triangleVertexBuffer.colorSize = 4;
-  triangleVertexBuffer.numberOfItems = 3;
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+  triangleVertexColorBuffer.itemSize = 4;
+  triangleVertexColorBuffer.numberOfItems = 3;
 }
 
 function draw() {
+  // Setup a viewport that is the same as the canvas using
+  // function viewport(int x, int y, sizei w, sizei h)
+  // where x and y give the x and y window coordinates of the viewport's width
+  // and height
   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
   gl.clear(gl.COLOR_BUFFER_BIT);
 
-  // Bind the buffer containing both position and colour
+  // Make vertex buffer "triangleVertexBuffer" the current buffer
   gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexBuffer);
 
-  // Describe how the positions are organized in the vertex array
+  // Link the current buffer, to the attribute "aVertexPosition" in
+  // the vertex shader
   gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-     triangleVertexBuffer.positionSize, gl.FLOAT, false, 16, 0);
+     triangleVertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
+  // Make color buffer "triangleVertexColorBuffer" the current buffer
+  gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
+  // Link the current buffer to the attribute "aVertexColor" in
+  // the vertex shader
   gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-     triangleVertexBuffer.colorSize, gl.UNSIGNED_BYTE, true, 16, 12);
+     triangleVertexColorBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
   // Draw the triangle
   gl.drawArrays(gl.TRIANGLES, 0, triangleVertexBuffer.numberOfItems);
